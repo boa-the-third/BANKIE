@@ -1,1 +1,2 @@
 # BANKIE
+Bankie is one of the worst bank simulation programs I made in C. After one month of learning C, I built it as one of my first projects. Even though I didn't finish some things like the withdraw (it works, but not how I wanted), I'm still proud of it. If you don't like it, I totally aggre with ya its of trash. But it took me time to create it , and when I sort of finished it, I felt happy. I don't want to kill myself anymore!
