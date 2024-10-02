@@ -8,8 +8,9 @@
 #define THE_LENGHT 1000
 #define THE_LENG_OF 20
 
+//declaration dyal c functions
 void file_checker(FILE *pFile);
-int user_already_ex(const char *usernams);//declaration dyal c functions
+int user_already_ex(const char *usernams);
 int user_login(const char *user , const char *passw);
 int history(const char *key , char *user);
 
@@ -41,7 +42,7 @@ if(choice == 'N'){
     while (1)
     {
     memset(user, 0, THE_LENG_OF);
-    scanf("%19s" , user);
+    scanf("%s" , user);
         if(checker = user_already_ex(user)!= 0)//the code is true !
          {
             puts("this username already existed");
@@ -60,6 +61,9 @@ file_checker(pFile);
 fprintf(pFile , "\n%s %s" , user , passw);
 fclose(pFile);
 checker = 0;
+puts("------- BANKIE WELCOMES YOU!----------");
+Sleep(1000*2);
+system("cls");
 }
 
 
@@ -103,6 +107,8 @@ else if(choice == 'Y'){
  else{
  puts("you need to choose btween y/n");
  exit(0);}
+ Sleep(1000*2);
+system("cls");
 strcat(user , "_bankie.txt");
 FILE *pFile_clients = fopen(user, "a");
 file_checker(pFile_clients);// i check files with it
@@ -110,22 +116,30 @@ fclose(pFile_clients);
  puts("HERE YOU CAN CHOOSE ONE OF OUR SERVICES");
 
 do{
- puts("D = DEPOSIT / W = WITHDRAW / T = TRANSFER MONYE / S = SEE YOUR ACCOUNT STATS");
+ puts("D = DEPOSIT / W = WITHDRAW / T = TRANSFER MONEY / S = SEE YOUR ACCOUNT STATS");
 operators = '\0'; // to clear it i don't know if it realy works hhh
 
 
 scanf(" %c" , &operators);
-
+operators = tolower(operators);
 switch(operators){
 default :
 puts("SORRY, INVALID OPERATOR");
+break;
 case 'd' : 
 puts("--------YOU ARE IN THE DEPOSIT SECTION-------");
 puts("how much do you wanna deposit?");
+
 FILE *pFile_clients = fopen (user , "a");
 file_checker(pFile_clients);
 scanf("%lf" , &deposit);
-fprintf(pFile_clients , "$%lf\n" , deposit);
+if(deposit <= 0 )
+{
+    printf("\nSORRY BUT YOU CAN'T DEPOSIT A NEGATIVE NUMBER!\n");
+}
+else{
+fprintf(pFile_clients , "$%lf\n" , deposit);}
+
 fclose(pFile_clients);
 break;
 case 'w' :
@@ -140,7 +154,7 @@ fclose(pFile_clients2);
 break;
 case 't' :
 puts("--------YOU ARE IN THE TRANSFER SECTION-------");
-puts("the transfer service is still under maintenance but it's working a little/sorry i'm lazy");
+puts("the transfer service is still under maintenance but it's working. a little/sorry i'm lazy");
 puts("how much do you wanna TRANSFER?");
 FILE *pFile_clients3 = fopen (user , "a");
 file_checker(pFile_clients3);
@@ -149,7 +163,7 @@ fprintf(pFile_clients3 , ">%lf\n" , transfer);
 fclose(pFile_clients3);
 break;
 case 's' :
-puts("CHOOSE ONE FO THE FOLLOWING OPERATORS!");
+puts("CHOOSE ONE OF THE FOLLOWING OPERATORS!");
 puts("D = DEPOSIT HISTORY / W = WITHDRAW HISTORY / T = TRANSFER HISTORY");
 scanf(" %c" , &s_for_stats);
 s_for_stats = toupper(s_for_stats);
@@ -194,9 +208,9 @@ choice = '\0';// same shit
 printf("\ndo you wanna choose another service? Y/N\n");
 scanf(" %c" , &choice); // space bin " o %c bach t7yd ay left overs !
 choice = toupper(choice);
+system("cls");
 }while(choice == 'Y');
 puts("-----THANK YOU FOR CHOOSING OUR SERVICES-----");
-puts("press anything to close the terminal");
  system("pause");
  return 0;
 }
@@ -252,7 +266,7 @@ return 1;
 
     while (fgets(scanner, THE_LENGHT, pFile))
     {
-    /* "ind" means nothing but i used it to see 
+    /* "ind" means nothing, but i used it to see 
     where the \n is so i can reolace it with '\0'*/
     size_t ind = strcspn(scanner, "\n");
     size_t ind2 = strcspn(scanner, " ");
