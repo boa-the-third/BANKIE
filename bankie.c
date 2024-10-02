@@ -31,13 +31,13 @@ Sleep(1000*4);
 printf("\n********WELOME TO BABKIE************\n");
 Sleep(500);
 printf("\n");
-puts("---THE WORST BANK IN THE PROGRAMING LAND---");
+puts("---THE WORST BANK IN ALL OF PROGRAMMING LAND---");
 Sleep(1000*2);
-printf("\nDO YOU HAVE ALREADY AN ACCOUNT BY US? IF YES PRESS Y IF NO PRESS N!\n");
+printf("\nDO YOU ALREADY HAVE AN ACCOUNT WITH US? IF YES PRESS Y IF NO PRESS N!\n");
 scanf(" %c" , &choice);
 choice = toupper(choice);
 if(choice == 'N'){
-    printf("\nfirst you need to enter your username!\npss no spacses\n");
+    printf("\nfirst you need to enter your username!\npss no spaces\n");
 
     while (1)
     {
@@ -45,7 +45,7 @@ if(choice == 'N'){
     scanf("%s" , user);
         if(checker = user_already_ex(user)!= 0)//the code is true !
          {
-            puts("this username already existed");
+            puts("this username already exists");
             puts("please try again");
             continue;
          }
@@ -54,7 +54,7 @@ if(choice == 'N'){
 }
 
 
-printf("now we need you to enter a password for you account!\npss no scpaces\n");
+printf("now we need you to enter a password for your account!\npss no spaces\n");
 scanf("%s" , passw);
 FILE *pFile = fopen("secret_data.txt" , "a");
 file_checker(pFile);
@@ -70,16 +70,16 @@ system("cls");
 
 
 else if(choice == 'Y'){
-    puts("WE'ER GLAD TO HERE THAT YOU ARE ALREADY A CLEINT FOR BANKIE");
+    puts("WE'ER GLAD TO HEAR THAT YOU ARE ALREADY A CLEINT FOR BANKIE");
     while (1)
     {
 
     memset(user, 0, THE_LENG_OF);
     memset(passw, 0, THE_LENG_OF);
 
-    puts("enter here your username!");
+    puts("enter your username here!");
     scanf("%s" , user);
-    puts("and here your password!");
+    puts("and your password here!");
     scanf("%s" , passw);
 
     if (user == "no")
@@ -144,7 +144,7 @@ fclose(pFile_clients);
 break;
 case 'w' :
 puts("--------YOU ARE IN THE WITHDRAW SECTION-------");
-puts("the withdraw service is still under maintenance but it's working a little/sorry i'm lazy");
+puts("the withdrawal service is still under maintenance but it's working a little/sorry i'm lazy");
 puts("how much do you wanna withdraw?");
 FILE *pFile_clients2 = fopen (user , "a");
 file_checker(pFile_clients2);
@@ -205,7 +205,7 @@ switch(s_for_stats)
 }
 s_for_stats = '\0';
 choice = '\0';// same shit
-printf("\ndo you wanna choose another service? Y/N\n");
+printf("\ndo you want to choose another service? Y/N\n");
 scanf(" %c" , &choice); // space bin " o %c bach t7yd ay left overs !
 choice = toupper(choice);
 system("cls");
@@ -246,7 +246,7 @@ return 1;
     {
         if(pFile == NULL)
         {
-        perror("SORRY");
+        perror("SORRY FILE CHECKER ISN't WORKING");
         exit(0);
         }
     }
@@ -259,7 +259,7 @@ return 1;
 
     if (pFile == NULL)//checking the file!!
     {
-    perror("\nSORRY THE FILE CANNOT BE OPEN!!!");
+    perror("\nSORRY THE FILE CANNOT BE OPENNED!!!");
     exit(0);
     }
 
@@ -296,7 +296,7 @@ return 1;
         FILE *pFile = fopen ("secret_data.txt" , "r");
         if (pFile == NULL)// to check if the file oppening is working fine!
         {
-        perror("SORRY THE FILE CANNOT BE OPEN!!!");
+        perror("SORRY THE FILE CANNOT BE OPENNED!!!");
         exit(0);
         }
  
