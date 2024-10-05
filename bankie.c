@@ -171,6 +171,7 @@ switch(s_for_stats)
 {
     default :
     perror("ERROR IN SWITCH HISTORY");
+    break;
     case 'D' :
     puts("YOUR DEPOSIT HISTORY");
     key = '$';
